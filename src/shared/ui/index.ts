@@ -13,7 +13,9 @@ export {
 	//
 	Avatar,
 	//
-	Widget
+	Widget,
+	//
+	Divider,
+	//
+	Link,
 } from '@uniteam31/uni-shared-ui';
-
-export { Divider } from './Divider/Divider';

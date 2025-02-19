@@ -1,6 +1,5 @@
-import React, { memo, useCallback, useEffect, useState } from 'react';
-// import { useNavigationStore } from 'entities/Navigation';
-import { Direction, Divider } from 'shared/ui/Divider/Divider';
+import React, { memo, useCallback, useState } from 'react';
+import { Divider } from 'shared/ui';
 import { friendsTabs } from '../../model/friendsTabs';
 import type { TFriendsTabName } from '../../model/friendsTabs';
 import { TabsSelector } from '../TabsSelector/TabsSelector';
@@ -8,11 +7,6 @@ import s from './FriendsPage.module.scss';
 
 export const FriendsPage = memo(() => {
 	const [currentTab, setCurrentTab] = useState<TFriendsTabName>('friendsList');
-	// const { setCurrentService } = useNavigationStore();
-	//
-	// useEffect(() => {
-	// 	setCurrentService('/friends');
-	// }, [setCurrentService]);
 
 	const handleSelectTab = useCallback((tabName: TFriendsTabName) => {
 		setCurrentTab(tabName);
@@ -20,15 +14,15 @@ export const FriendsPage = memo(() => {
 
 	return (
 		<div className={s.FriendsPage}>
-			<Divider direction={Direction.VERTICAL} />
+			<Divider />
 
 			<TabsSelector currentTab={currentTab} onClickTab={handleSelectTab} />
 
-			<Divider direction={Direction.VERTICAL} />
+			<Divider />
 
 			<div className={s.tabs}>{friendsTabs[currentTab].Component}</div>
 
-			<Divider direction={Direction.VERTICAL} />
+			<Divider />
 		</div>
 	);
 });
