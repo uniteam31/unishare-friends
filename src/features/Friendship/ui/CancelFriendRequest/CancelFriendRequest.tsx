@@ -5,21 +5,21 @@ import { Button } from 'shared/ui';
 import { useCancelFriendRequest } from '../../api/useCancelFriendRequest';
 
 interface ICancelFriendRequestProps {
-	_id: IUser['_id'];
+	id: IUser['id'];
 }
 
 export const CancelFriendRequest = (props: ICancelFriendRequestProps) => {
-	const { _id } = props;
+	const { id } = props;
 
 	// TODO добавить уведомление на error
 	const { isLoading, canselFriendRequest, error } = useCancelFriendRequest();
 
 	const handleCancelFriendRequest = useCallback(() => {
-		canselFriendRequest({ userID: _id }).then(() => {
+		canselFriendRequest({ userID: id }).then(() => {
 			// TODO разобраться с мутациями
 			mutate((key) => true);
 		});
-	}, [_id, canselFriendRequest]);
+	}, [id, canselFriendRequest]);
 
 	return (
 		<Button onClick={handleCancelFriendRequest} disabled={isLoading}>

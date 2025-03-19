@@ -7,22 +7,22 @@ import { DeleteFriend } from '../DeleteFriend/DeleteFriend';
 import { ResolveFriendRequest } from '../ResolveFriendRequest/ResolveFriendRequest';
 
 interface IFriendActionProps {
-	_id: IUser['_id'];
+	id: IUser['id'];
 	friendStatus?: TFriendStatus;
 }
 
 export const FriendAction = (props: IFriendActionProps) => {
-	const { _id, friendStatus } = props;
+	const { id, friendStatus } = props;
 
 	// TODO поправить мутацию в каждой фиче!!!!
 	switch (friendStatus) {
 		case 'friend':
-			return <DeleteFriend _id={_id} />;
+			return <DeleteFriend id={id} />;
 		case 'pendingAcceptance':
-			return <ResolveFriendRequest _id={_id} />;
+			return <ResolveFriendRequest id={id} />;
 		case 'sent':
-			return <CancelFriendRequest _id={_id} />;
+			return <CancelFriendRequest id={id} />;
 		default:
-			return <AddFriend _id={_id} />;
+			return <AddFriend id={id} />;
 	}
 };

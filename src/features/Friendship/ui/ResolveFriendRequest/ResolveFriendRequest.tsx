@@ -7,11 +7,11 @@ import { useDeclineFriendRequest } from '../../api/useDeclineFriendRequest';
 import s from './ResolveFriendRequest.module.scss';
 
 interface IResolveFriendRequestProps {
-	_id: IUser['_id'];
+	id: IUser['id'];
 }
 
 export const ResolveFriendRequest = (props: IResolveFriendRequestProps) => {
-	const { _id } = props;
+	const { id } = props;
 
 	// TODO добавить уведомления на error
 	const {
@@ -27,18 +27,18 @@ export const ResolveFriendRequest = (props: IResolveFriendRequestProps) => {
 	} = useDeclineFriendRequest();
 
 	const handleAcceptFriendRequest = useCallback(() => {
-		acceptFriendRequest({ userID: _id }).then(() => {
+		acceptFriendRequest({ userID: id }).then(() => {
 			// TODO разобраться с мутациями
 			mutate((key) => true);
 		});
-	}, [_id, acceptFriendRequest]);
+	}, [id, acceptFriendRequest]);
 
 	const handleDeclineFriendRequest = useCallback(() => {
-		declineFriendRequest({ userID: _id }).then(() => {
+		declineFriendRequest({ userID: id }).then(() => {
 			// TODO разобраться с мутациями
 			mutate((key) => true);
 		});
-	}, [_id, declineFriendRequest]);
+	}, [id, declineFriendRequest]);
 
 	return (
 		<div className={s.ResolveFriendRequest}>

@@ -8,7 +8,7 @@ export type TExtendedUserWithFriendStatus = IUser & {
 };
 
 export type TActionComponent = ComponentType<{
-	_id: IUser['_id'];
+	id: IUser['id'];
 	friendStatus: TFriendStatus;
 }>;
 

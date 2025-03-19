@@ -16,14 +16,14 @@ interface IListItemProps extends TExtendedUserWithFriendStatus {
 }
 
 export const ListItem = memo((props: IListItemProps) => {
-	const { _id, username, firstName, avatar, friendStatus, ActionComponent, className } = props;
+	const { id, username, firstName, avatar, friendStatus, ActionComponent, className } = props;
 
 	// TODO не отрисовывать самого себя
 
 	// const { authData } = useUserStore();
 	//
 	// /** Не отрисовываем в списке самого себя */
-	// if (_id === authData?._id) {
+	// if (id === authData?.id) {
 	// 	return;
 	// }
 
@@ -42,7 +42,7 @@ export const ListItem = memo((props: IListItemProps) => {
 				<Text title={username} text={firstName} className={s.personalInfo} />
 			</div>
 
-			{ActionComponent && <ActionComponent _id={_id} friendStatus={friendStatus} />}
+			{ActionComponent && <ActionComponent id={id} friendStatus={friendStatus} />}
 		</div>
 	);
 });
