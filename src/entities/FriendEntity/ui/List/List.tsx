@@ -52,7 +52,7 @@ export const List = memo((props: IListProps) => {
 				friends.map((friend) => (
 					<ListItem
 						{...friend}
-						key={friend._id}
+						key={friend.id}
 						className={s.listItem}
 						ActionComponent={ActionComponent}
 					/>

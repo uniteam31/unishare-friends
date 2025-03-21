@@ -4,7 +4,7 @@ import { axiosInstance } from 'shared/api';
 import { getApiResponseErrorMessage } from 'shared/lib';
 
 interface IAddFriendProps {
-	userID: IUser['_id'];
+	userID: IUser['id'];
 }
 
 export const useAddFriend = () => {

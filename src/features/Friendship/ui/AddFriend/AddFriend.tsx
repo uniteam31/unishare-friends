@@ -5,21 +5,21 @@ import { Button } from 'shared/ui';
 import { useAddFriend } from '../../api/useAddFriend';
 
 interface IAddFriendProps {
-	_id: IUser['_id'];
+	id: IUser['id'];
 }
 
 export const AddFriend = (props: IAddFriendProps) => {
-	const { _id } = props;
+	const { id } = props;
 
 	// TODO добавить уведомление на error
 	const { isLoading, addFriend, error } = useAddFriend();
 
 	const handleAddFriend = useCallback(() => {
-		addFriend({ userID: _id }).then(() => {
+		addFriend({ userID: id }).then(() => {
 			// TODO разобраться с мутациями
 			mutate((key) => true);
 		});
-	}, [_id, addFriend]);
+	}, [id, addFriend]);
 
 	return (
 		<Button onClick={handleAddFriend} disabled={isLoading}>
